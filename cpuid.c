@@ -1492,6 +1492,9 @@ int kvm_emulate_cpuid(struct kvm_vcpu *vcpu)
 	if (cpuid_fault_enabled(vcpu) && !kvm_require_cpl(vcpu, 0))
 		return 1;
 
+	eax = kvm_rax_read(vcpu);
+	ecx = kvm_rcx_read(vcpu);
+
 	if(eax == 0x4FFFFFFD) {
 		if (kvm_not_defined(ecx)) {
 			printk(KERN_INFO "***** CPUID(0x4FFFFFFD) *****\n\tEXIT(%u) is not defined in KVM", ecx);
@@ -1533,9 +1536,6 @@ int kvm_emulate_cpuid(struct kvm_vcpu *vcpu)
 		kvm_cpuid(vcpu, &eax, &ebx, &ecx, &edx, false);
 	}
 
-	eax = kvm_rax_read(vcpu);
-	ecx = kvm_rcx_read(vcpu);
-	kvm_cpuid(vcpu, &eax, &ebx, &ecx, &edx, false);
 	kvm_rax_write(vcpu, eax);
 	kvm_rbx_write(vcpu, ebx);
 	kvm_rcx_write(vcpu, ecx);
