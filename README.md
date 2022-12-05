@@ -157,10 +157,11 @@ Comment on the frequency of exits – does the number of exits increase at a sta
 
 ## Question 4: 
 - Following are some of the most frequently called exits:
+  - Exit #49 - EPT_MISCONFIG
+  - Exit #30 - IO_INSTRUCTION
   - Exit #28 - CR_ACCESS
-  - Exit #48 - EPT_VIOLATION
-
-- Following are some of the least frequently called exits:
-  - Exit #55 - XSETBV
-  - Exit #47 - LDTR_TR
+  - 
+- Following are some of the least frequently called exits(>0):
+  - Exit #54 - WBINVD
   - Exit #29 - DR_ACCESS
+  - Exit #0 - EXCEPTION_NMI
