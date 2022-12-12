@@ -127,7 +127,7 @@
     done
     ```
 12) Testing the CPUID functionality for `%eax=0x4ffffffd`
-  - T2: `bash test_cpuid.sh -0x4ffffffd`
+  - T2: `bash test_cpuid.sh 0x4ffffffd`
   - T1: `sudo dmesg` 
 
     ![](./images/t31.png)
